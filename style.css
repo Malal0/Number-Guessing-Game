@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+html {
+    font-family: sans-serif;
+    background-image: linear-gradient(194deg, #102245, #77DD78);
+    height: 100vh;
+    color: white;
+}
+
+body {
+    width: 50%;
+    max-width: 800px;
+    min-width: 480px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.lastResult {
+    color: white;
+    padding: 10px;
+    width: fit-content;
+    background-color: #00000000;
+    border-radius: 5px;
+}
+
+.guessSubmit,
+.guessField,
+.guessField:focus,
+.resetBtn {
+    background-color: #00000000;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+}
