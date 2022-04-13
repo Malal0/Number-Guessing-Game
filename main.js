@@ -2,15 +2,17 @@
 let randomNumber = Math.floor(Math.random() * 100) + 1;
 
 const guesses = document.querySelector('.guesses');
+const guessesLeft = document.querySelector('.tries');
 const lastResult = document.querySelector('.lastResult');
 const lowOrHi = document.querySelector('.lowOrHi');
-
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
-const resultsBox = document.querySelector('.resultParas')
+const resultsBox = document.querySelector('.resultParas');
 
 let guessCount = 1;
 guessField.focus();
+
+let tryCount = 9;
 
 let resetButton;
 
@@ -28,22 +30,26 @@ function checkGuess() {
         lowOrHi.textContent = '';
         setGameOver();
     } else if (guessCount === 10) {
-        lastResult.textContent = '!!!GAME OVER!!!';
+        lastResult.textContent = 'GAME OVER';
         lowOrHi.textContent = '';
         setGameOver();
     } else {
         lastResult.textContent = 'Wrong!';
         lastResult.style.backgroundColor = 'red';
         if (userGuess < randomNumber) {
-            lowOrHi.textContent = 'Last guess was too low! Dumbass!';
+            lowOrHi.textContent = 'Last guess was too low! Try a higher number!';
         } else if (userGuess > randomNumber) {
-            lowOrHi.textContent = 'Last guess was too high! Just like the Gas Prices!';
+            lowOrHi.textContent = 'Last guess was too high! Try a lower number!';
         }
     }
+
+    guessesLeft.textContent = `Tries remaining: ${tryCount}`;
 
     guessCount++;
     guessField.value = '';
     guessField.focus();
+    tryCount--;
+    console.log(tryCount);
 }
 
 function setGameOver() {
@@ -74,6 +80,7 @@ function resetGame() {
     lastResult.style.backgroundColor = '#00000000';
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
+    tryCount = 9;
 }
 
 
