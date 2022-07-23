@@ -1,6 +1,6 @@
 //  Variables
 let randomNumber = Math.floor(Math.random() * 100) + 1;
-
+console.log(randomNumber);
 const guesses = document.querySelector('.guesses');
 const guessesLeft = document.querySelector('.tries');
 const lastResult = document.querySelector('.lastResult');
@@ -21,15 +21,19 @@ let resetButton;
 //  Functions
 function checkGuess() {
     const userGuess = Number(guessField.value);
-    if (guessCount === 1 && language.value == "english") {
+    if (guessCount === 1 && language.value === "english") {
         guesses.textContent = 'Previous guesses: ';
     } else {
-        guesses.textContent = 'Spanish: ';
+        guesses.textContent = 'Conjeturas anteriores: ';
     }
     guesses.textContent += userGuess + ' ';
 
     if (userGuess === randomNumber) {
-        lastResult.textContent = 'Congratulations! You got it right!';
+        if (language.value === "english") {
+            lastResult.textContent = 'Congratulations! You got it right!';
+        } else {
+            lastResult.textContent = '¡Felicidades! ¡Lo hiciste bien!';
+        }
         lastResult.style.backgroundColor = '#008000';
         lowOrHi.textContent = '';
         setGameOver();
