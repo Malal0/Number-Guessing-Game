@@ -9,6 +9,8 @@ const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
 const resultsBox = document.querySelector('.resultParas');
 
+var language = document.querySelector("#languages");
+
 let guessCount = 1;
 guessField.focus();
 
@@ -19,8 +21,10 @@ let resetButton;
 //  Functions
 function checkGuess() {
     const userGuess = Number(guessField.value);
-    if (guessCount === 1) {
+    if (guessCount === 1 && language.value == "english") {
         guesses.textContent = 'Previous guesses: ';
+    } else {
+        guesses.textContent = 'Spanish: ';
     }
     guesses.textContent += userGuess + ' ';
 
@@ -43,13 +47,12 @@ function checkGuess() {
         }
     }
 
-    guessesLeft.textContent = `Tries remaining: ${tryCount}`;
+    guessesLeft.textContent = `Guesses remaining: ${tryCount}`;
 
     guessCount++;
     guessField.value = '';
     guessField.focus();
     tryCount--;
-    console.log(tryCount);
 }
 
 function setGameOver() {
@@ -85,3 +88,16 @@ function resetGame() {
 
 
 guessSubmit.addEventListener('click', checkGuess);
+// language.addEventListener("change", () => {
+//     console.log(language.value);
+
+// })
+
+addEventListener("change", () => {
+    if (language.value === "english") {
+        console.log(`Language is ${language.value}`);
+    } else {
+        console.log(`Language is ${language.value}`);
+    }
+
+})

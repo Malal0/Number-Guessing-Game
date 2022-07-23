@@ -32,11 +32,22 @@ body {
 .guessSubmit,
 .guessField,
 .guessField:focus,
-.resetBtn {
+.resetBtn,
+select {
     background-color: #00000000;
     color: white;
     border: 1px solid white;
     padding: 5px;
     border-radius: 5px;
     outline: none;
+}
+
+.settings {
+    width: fit-content;
+    margin-left: 60%;
+}
+
+select option {
+    background-color: #6baec3;
+    color: hsl(0, 0%, 50%);
 }
