@@ -8,8 +8,10 @@ const lowOrHi = document.querySelector('.lowOrHi');
 const guessSubmit = document.querySelector('.guessSubmit');
 const guessField = document.querySelector('.guessField');
 const resultsBox = document.querySelector('.resultParas');
+const language = document.querySelector("#languages");
 
-var language = document.querySelector("#languages");
+const title = document.querySelector("#title");
+const mainTxt = document.querySelector("#main-txt");
 
 let guessCount = 1;
 guessField.focus();
@@ -100,7 +102,11 @@ guessSubmit.addEventListener('click', checkGuess);
 addEventListener("change", () => {
     if (language.value === "english") {
         console.log(`Language is ${language.value}`);
+        title.textContent = "Number Guessing Game";
+        mainTxt.textContent = "We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.";
     } else {
+        title.textContent = "Juego de adivinanzas de números";
+        mainTxt.textContent = "Hemos seleccionado un número aleatorio entre 1 y 100. Vea si puede adivinarlo en 10 turnos o menos. Le diremos si su conjetura fue demasiado alta o demasiado baja.";
         console.log(`Language is ${language.value}`);
     }
 
